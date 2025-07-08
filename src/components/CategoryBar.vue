@@ -1,9 +1,3 @@
-<template>
-  
-</template>
-
-
-
 <script>
 import axios from "@/axios";
 
@@ -14,7 +8,6 @@ export default {
       activeCategory: null,
       hideTimeout: null,
       categories: [
-        // { name: "Women", subcategories: ["Dresses", "Tops", "Shoes", "Accessories"] },
       ]
     };
   },
@@ -33,26 +26,12 @@ export default {
 
     // Populate subcategories
     res2.data.forEach(category => {
-      // if (category.parent !== null) {
-      //     if (categoryMap[category.parent]) {
-      //         categoryMap[category.parent].subcategories.push(category.name);
-      //     }
-      // }
-      // if (category.id == categoryMap[category.id]){
       categoryMap[category.parent].subcategories.push({name: category.name, image: category.logo});
-      // }
-
-
+     
     });
 
-    // Extract only top-level categories (parent === null)
-    // this.categories = res.data
-    //     .filter(category => category.parent === null)
-    //     .map(category => categoryMap[category.id]);
     this.categories = categoryMap
 
-
-    console.log(this.categories);
   },
   methods: {
     showMenu(category) {

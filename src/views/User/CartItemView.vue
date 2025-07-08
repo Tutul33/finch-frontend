@@ -158,7 +158,7 @@
                 <!-- Right Column - Reviews List -->
                 <div class="md:col-span-3">
                     <!-- Review Item 1 -->
-                    <div v-for="item in reviews" class="border-b border-gray-200 py-4">
+                    <div  v-for="(item, index) in reviews" :key="index"  class="border-b border-gray-200 py-4">
                         <div class="flex justify-between">
                             <div>
                                 <div class="flex">
@@ -190,13 +190,13 @@
 </template>
 
 <script>
-import ProductCard from "@/components/home_components/cards/ProductCard.vue";
+//import ProductCard from "@/components/home_components/cards/ProductCard.vue";
 import ActionButton from "@/components/ActionButton.vue";
 import MainHeader from "@/components/MainHeader.vue";
 import ProductPreloader from "@/components/preloaders/ProductPreloader.vue";
 import MainFooter from "@/components/MainFooter.vue";
 import ReleventProducts from "@/components/home_components/products/ReleventProducts.vue";
-import CategoryBar from "@/components/CategoryBar.vue";
+//import CategoryBar from "@/components/CategoryBar.vue";
 
 import DOMPurify from "dompurify";
 
@@ -209,13 +209,13 @@ import axios from "@/axios";
 export default {
     name: "CartItemView",
     components: {
-        ProductCard,
+        //ProductCard,
         ActionButton,
         MainHeader,
         ReleventProducts,
         ProductPreloader,
         MainFooter,
-        CategoryBar,
+        //CategoryBar,
     },
     data() {
         return {
@@ -250,7 +250,7 @@ export default {
     watch: {
         "$route.params.id": {
             immediate: true,
-            handler(newId) {
+            handler() {
                 this.fetchProductData();
                 this.resetErrorStates();
             },
@@ -431,24 +431,24 @@ export default {
             return this.products.filter((product) => product.is_featured);
         },
     },
-    async created() {
-        let res = await axios.get(`/products/${this.$route.params.id}/`);
-        this.product = res.data;
-        this.loaded = true;
-        this.activeImage = this.product.image;
+    // async created() {
+    //     let res = await axios.get(`/products/${this.$route.params.id}/`);
+    //     this.product = res.data;
+    //     this.loaded = true;
+    //     this.activeImage = this.product.image;
 
-        let res1 = await axios.get("/products/");
-        this.products = res1.data.results.map((product) => {
-            return product;
-        });
-        this.set_products(this.products);
+    //     let res1 = await axios.get("/products/");
+    //     this.products = res1.data.results.map((product) => {
+    //         return product;
+    //     });
+    //     this.set_products(this.products);
 
-        let reviews = await axios.get(`/product-reviews/${this.$route.params.id}/`);
+    //     let reviews = await axios.get(`/product-reviews/${this.$route.params.id}/`);
 
-        this.reviews = reviews.data;
+    //     this.reviews = reviews.data;
 
 
-    },
+    // },
 
 };
 </script>

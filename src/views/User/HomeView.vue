@@ -36,17 +36,17 @@
 </template>
 
 <script>
-import ServiceSection from "@/components/home_components/ServiceSection.vue";
+//import ServiceSection from "@/components/home_components/ServiceSection.vue";
 import BannerSection from "@/components/home_components/BannerSection.vue";
 import NewArrivals from "@/components/home_components/products/NewArrivals.vue";
 import AdvertSection from "@/components/home_components/AdvertSection.vue";
 import FeaturedProducts from "@/components/home_components/products/FeaturedProducts.vue";
 import ActionButton from "@/components/ActionButton.vue";
-import Topbar from "@/components/Topbar.vue";
+//import Topbar from "@/components/Topbar.vue";
 import MainHeader from "@/components/MainHeader.vue";
 import NewsLetter from "@/components/NewsLetter.vue";
 import MainFooter from "@/components/MainFooter.vue";
-import CategoryBar from "@/components/CategoryBar.vue";
+//import CategoryBar from "@/components/CategoryBar.vue";
 
 import axios from '@/axios'; 
 import { mapActions } from "vuex";
@@ -80,17 +80,17 @@ export default {
         ...mapActions(["set_products"]),
     },
     components: {
-        ServiceSection,
+        //ServiceSection,
         BannerSection,
         NewArrivals,
         AdvertSection,
         FeaturedProducts,
         ActionButton,
         MainHeader,
-        Topbar,
+        //Topbar,
         NewsLetter,
         MainFooter,
-        CategoryBar,
+        //CategoryBar,
     },
 };
 </script>

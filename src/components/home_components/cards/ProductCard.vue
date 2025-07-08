@@ -62,9 +62,9 @@
 
 <script>
 import QuickViewModal from "./QuickViewModal.vue";
-import {
-    Heart as HeartIcon,
-} from 'lucide-vue-next'
+// import {
+//     Heart as HeartIcon,
+// } from 'lucide-vue-next'
 
 export default {
     name: "ProductCard",

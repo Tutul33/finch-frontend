@@ -159,12 +159,12 @@ import SubHeader from "@/components/SubHeader.vue";
 import ActionButton from "@/components/ActionButton.vue";
 import MainHeader from "@/components/MainHeader.vue";
 import MainFooter from "@/components/MainFooter.vue";
-import CategoryBar from "@/components/CategoryBar.vue";
+//import CategoryBar from "@/components/CategoryBar.vue";
 import { mapState, mapActions, mapGetters } from "vuex";
 import axios from "@/axios";
 
 export default {
-    components: { SubHeader, ActionButton, MainHeader, MainFooter, CategoryBar },
+    components: { SubHeader, ActionButton, MainHeader, MainFooter,  },
 
     name: "CartView",
     data() {
@@ -208,7 +208,7 @@ export default {
                     this.cart.forEach((item) => {
                         this.total += item.quantity * item.price;
                     });
-                    this.total = this.total;
+                    // this.total = this.total;
                     this.$store.commit("setTotal", this.total);
                 } else {
                     this.errorMessageCart = response.data.error;

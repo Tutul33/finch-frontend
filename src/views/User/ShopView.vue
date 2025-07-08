@@ -98,7 +98,7 @@
 import SubHeader from "@/components/SubHeader.vue";
 import ProductCard from "@/components/home_components/cards/ProductCard.vue";
 import ProductPreloader from "@/components/preloaders/ProductPreloader.vue";
-import CategoryBar from "@/components/CategoryBar.vue";
+//import CategoryBar from "@/components/CategoryBar.vue";
 import MainHeader from "@/components/MainHeader.vue";
 import MainFooter from "@/components/MainFooter.vue";
 import noUiSlider from 'nouislider';
@@ -114,7 +114,7 @@ export default {
         MainHeader,
         MainFooter,
         "product-preloader": ProductPreloader,
-        CategoryBar,
+        //CategoryBar,
     },
     data() {
         return {

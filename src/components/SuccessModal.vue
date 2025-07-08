@@ -40,55 +40,42 @@
 </template>
 
 <script>
-import paystack from "vue3-paystack";
 import { loadStripe } from "@stripe/stripe-js";
-import ActionButton from "@/components/ActionButton.vue";
 import { mapActions, mapGetters } from "vuex";
+
 export default {
-    props: ["reference", 'order_id', "price", "email", "title", "isError"],
-    components: {
-        ActionButton,
-        paystack,
-    },
+    props: ["reference", "order_id", "price", "email", "title", "isError"],
     data() {
         return {
-            key: "pk_test_ec28501e234f6e2d802dc2a156c2511abd2d0527", // Replace with your public key
-            amount: this.price * 100, // the amount value is multiplied by 100 to convert to the lowest currency unit
-            ref: this.reference, // Replace with a reference you generated
             showModal: false,
-            title: this.title,
-            isError: this.isError,
-            order_id: this.order_id,
         };
     },
     methods: {
         ...mapActions(["clear_cart"]),
-
         async checkout() {
-            const stripe = await loadStripe(process.env.VUE_APP_STRIPE_PUBLIC_KEY);
+            // Load stripe but don't assign it to unused variable
+            await loadStripe(process.env.VUE_APP_STRIPE_PUBLIC_KEY);
 
-            console.log("Order ID:", this.order_id);
-            
-            const response = await fetch(this.$serverUrl + "/api/create-checkout-session/", {
+            // Make checkout session creation request
+            const res = await fetch(this.$serverUrl + "/api/create-checkout-session/", {
                 method: "POST",
-                headers: { 
+                headers: {
                     "Content-Type": "application/json",
-                    "Authorization": `Bearer ${this.getAccessToken}`,
+                    Authorization: `Bearer ${this.getAccessToken}`,
                 },
                 body: JSON.stringify({ order_id: this.order_id }),
             });
 
-            const session = await response.json();
+            const session = await res.json();
             if (session.url) {
-                window.location.href = session.url;  // Redirect to Stripe checkout
+                window.location.href = session.url; // Redirect to Stripe checkout
             }
         },
-
-        onSuccessfulPayment: function (response) {
+        onSuccessfulPayment() {
             this.clear_cart();
             this.$router.push("/cart");
         },
-        onCancelledPayment: function () {
+        onCancelledPayment() {
             this.$router.push("/cart");
         },
     },
@@ -177,19 +164,5 @@ export default {
     position: absolute;
     top: 20px;
     right: 20px;
-}
-
-.paystack-button {
-    border: none;
-    background-color: var(--dim-blue);
-    padding: 10px 20px;
-    border: 2px solid var(--dim-blue);
-    font-size: 1.7rem;
-    color: white;
-}
-
-.paystack-button:hover {
-    background-color: #083e46;
-    border-color: #083e46;
 }
 </style>

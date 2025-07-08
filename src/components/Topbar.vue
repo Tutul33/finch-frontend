@@ -1,9 +1,10 @@
 <template>
-  
+  <header class="topbar">
+  </header>
 </template>
 
 <script>
 export default {
-  name: "Topbar",
+  name: "TopBar",
 };
 </script>

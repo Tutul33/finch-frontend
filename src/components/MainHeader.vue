@@ -259,11 +259,11 @@ const toggleDropdown = () => {
 
 <script>
 import { mapState, mapActions, mapGetters } from "vuex";
-import ActionButton from "./ActionButton.vue";
+//import ActionButton from "./ActionButton.vue";
 // import axios from "@/axios";
 
 export default {
-    components: { ActionButton },
+    components: {  },
     name: "MainHeader",
     props: {
         msg: String,

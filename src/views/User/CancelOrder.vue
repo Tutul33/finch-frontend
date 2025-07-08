@@ -17,14 +17,18 @@
 </template>
 
 <script>
-import SubHeader from "@/components/SubHeader.vue";
+//import SubHeader from "@/components/SubHeader.vue";
 import ActionButton from "@/components/ActionButton.vue";
 import MainHeader from "@/components/MainHeader.vue";
 import MainFooter from "@/components/MainFooter.vue";
-import CategoryBar from "@/components/CategoryBar.vue";
+//import CategoryBar from "@/components/CategoryBar.vue";
 
 export default {
-    components: { SubHeader, ActionButton, MainHeader, MainFooter, CategoryBar },
+    components: {
+         //SubHeader, 
+         ActionButton, MainHeader, MainFooter,
+          //CategoryBar 
+        },
     name: "CancelOrder",
     data() {
         return {

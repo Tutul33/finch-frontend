@@ -193,9 +193,9 @@ import MainHeader from "@/components/MainHeader.vue";
 import MainFooter from "@/components/MainFooter.vue";
 import ButtonPreloader from "@/components/preloaders/ButtonPreloader.vue";
 import SubHeader from "@/components/SubHeader.vue";
-import ActionButton from "@/components/ActionButton.vue";
+//import ActionButton from "@/components/ActionButton.vue";
 import SuccessModal from "@/components/SuccessModal.vue";
-import CategoryBar from "@/components/CategoryBar.vue";
+//import CategoryBar from "@/components/CategoryBar.vue";
 import { loadStripe } from "@stripe/stripe-js";
 
 import { mapState, mapGetters, mapActions } from "vuex";
@@ -238,9 +238,9 @@ export default {
         MainFooter,
         ButtonPreloader,
         SubHeader,
-        ActionButton,
+        //ActionButton,
         SuccessModal,
-        CategoryBar,
+        //CategoryBar,
     },
     computed: {
         ...mapState(["user", "cart"]),
