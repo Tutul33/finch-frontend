@@ -2,9 +2,9 @@ name: Frontend CI
 
 on:
   push:
-    branches: [main]
+    branches: [master]
   pull_request:
-    branches: [main]
+    branches: [master]
 
 jobs:
   build-test-lint:
@@ -42,4 +42,4 @@ jobs:
       with:
         context: .
         push: true
-        tags: your-dockerhub-username/finch-frontend:latest
+        tags: tutulchakma/finch-frontend:latest
