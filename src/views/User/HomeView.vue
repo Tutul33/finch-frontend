@@ -8,7 +8,7 @@
         />
         <div class="container mx-auto text-center p-4">
             <div class="hero__text">
-                <h4 class="text-lg md:text-xl">Trade-in-offer</h4>
+                <h4 class="text-lg md:text-xl">Trade-in-offer --Edited</h4>
                 <h3 class="text-2xl md:text-3xl">Super value deals On all products</h3>
                 <p class="text-lg md:text-xl lg:text-2xl text-white">Save more with coupons & get up to 70% off!</p>
                 <router-link to="/shop">
