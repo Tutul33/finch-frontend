@@ -3,6 +3,7 @@ require('dotenv').config();
 
 
 module.exports = defineConfig({
+  lintOnSave: false,
   transpileDependencies: true,
   publicPath: process.env.NODE_ENV === 'production' ? '/' : '/',
   css: {
